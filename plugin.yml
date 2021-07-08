@@ -11,6 +11,7 @@ name: IsOP
 version: 1.0.0
 description: List OP players and check if player is OP using command
 author: KygekDev
+website: https://github.com/KygekDev/IsOP
 api: 3.0.0
 main: KygekDev\IsOP\IsOP
 
