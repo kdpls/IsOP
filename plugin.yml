@@ -1,4 +1,12 @@
 ---
+# List OP players and check if player is OP using command
+# Copyright (C) 2021 KygekDev
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# he Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
 name: IsOP
 version: 1.0.0
 description: List OP players and check if player is OP using command
