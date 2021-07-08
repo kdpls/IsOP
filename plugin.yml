@@ -1,0 +1,19 @@
+---
+name: IsOP
+version: 1.0.0
+description: List OP players and check if player is OP using command
+author: KygekDev
+api: 3.0.0
+main: KygekDev\IsOP\IsOP
+
+commands: 
+  isop:
+    description: List OP players or check if player is OP
+    usage: /isop [player]
+    permission: isop.command
+
+permissions: 
+  isop.command:
+    description: Permission to use IsOP plugin command
+    default: op
+...
