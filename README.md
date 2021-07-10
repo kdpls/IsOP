@@ -1,5 +1,7 @@
 # IsOP
 
+![Discord](https://img.shields.io/discord/856281149503963166?style=flat-square)
+
 A PocketMine-MP plugin to list OP players and check if player is OP using command.
 
 ## Usage
