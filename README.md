@@ -15,7 +15,7 @@ Check if player is OP: `/isop <player>` (Example: `/isop KygekDev` to check if p
 ## Downloads
 
 - Stable version (Recommended for most users): [Latest](https://github.com/KygekDev/IsOP/releases/latest) | [All releases](https://github.com/KygekDev/IsOP/releases)
-- Build version (Only recommended for advanced users): [Poggit CI](https://poggit.pmmp.io/ci/KygekDev/IsOP/~)
+- Build version (Only recommended for advanced users): [Poggit CI](https://poggit.pmmp.io/ci/kdpls/IsOP/~)
 
 ## Info
 

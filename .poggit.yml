@@ -1,4 +1,4 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/KygekDev/IsOP
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/kdpls/IsOP
 build-by-default: true
 branches:
 - main
