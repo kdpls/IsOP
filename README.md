@@ -1,5 +1,8 @@
 # IsOP
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/kdpls/IsOP?style=flat-square)
+![GitHub all releases](https://img.shields.io/github/downloads/kdpls/IsOP/total?label=downloads%40total&style=flat-square)
+![GitHub release (latest by date)](https://img.shields.io/github/downloads/kdpls/IsOP/latest/total?style=flat-square)
 ![Discord](https://img.shields.io/discord/856281149503963166?style=flat-square)
 
 A PocketMine-MP plugin to list OP players and check if player is OP using command.
@@ -14,8 +17,8 @@ Check if player is OP: `/isop <player>` (Example: `/isop KygekDev` to check if p
 
 ## Downloads
 
-- Stable version (Recommended for most users): [Latest](https://github.com/KygekDev/IsOP/releases/latest) | [All releases](https://github.com/KygekDev/IsOP/releases)
-- Build version (Only recommended for advanced users): [Poggit CI](https://poggit.pmmp.io/ci/kdpls/IsOP/~)
+- Stable version (Recommended): [Latest](https://github.com/KygekDev/IsOP/releases/latest) | [All releases](https://github.com/KygekDev/IsOP/releases)
+- Build version (For advanced users): [Poggit CI](https://poggit.pmmp.io/ci/kdpls/IsOP/~)
 
 ## Info
 
