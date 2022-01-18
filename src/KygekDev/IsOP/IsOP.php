@@ -36,7 +36,7 @@ class IsOP extends PluginBase {
             return true;
         }
         $getOpList = implode(", ", $this->getOpList());
-        $opList = ($getOpList == null) ? TF::RED . "Null" :  $getOpList;
+        $opList = (empty($getOpList)) ? "-" :  $getOpList;
         $this->sendMessage($sender, "OP players: " . $opList);
         return true;
     }
