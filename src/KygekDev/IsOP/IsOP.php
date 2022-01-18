@@ -25,7 +25,7 @@ class IsOP extends PluginBase {
     private const COMMAND_PERMISSION = "isop.command";
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool {
-        if ($command->getName() !== "isop" or !$sender->hasPermission(self::COMMAND_PERMISSION)) return true;
+        if ($command->getName() !== "isop" || !$sender->hasPermission(self::COMMAND_PERMISSION)) return true;
         
         if (isset($args[0])) {
             if (in_array(mb_strtolower($args[0]), array_map("strtolower", $this->getOpList()))) {
