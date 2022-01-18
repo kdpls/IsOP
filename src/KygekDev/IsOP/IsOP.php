@@ -28,15 +28,16 @@ class IsOP extends PluginBase {
         if ($command->getName() !== "isop" || !$sender->hasPermission(self::COMMAND_PERMISSION)) return true;
         
         if (isset($args[0])) {
-            if (in_array(strtolower($args[0]), array_map("strtolower", $this->getOpList()))) {
+            if (in_array(mb_strtolower($args[0]), array_map("strtolower", $this->getOpList()))) {
                 $this->sendMessage($sender, "Player " . $args[0] . " is OP");
             } else {
                 $this->sendMessage($sender, "Player " . $args[0] . " is not OP");
             }
             return true;
         }
-        
-        $this->sendMessage($sender, "OP players: " . implode(", ", $this->getOpList()));
+        $getOpList = implode(", ", $this->getOpList());
+        $opList = (empty($getOpList)) ? "-" :  $getOpList;
+        $this->sendMessage($sender, "OP players: " . $opList);
         return true;
     }
 
