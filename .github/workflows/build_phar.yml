@@ -1,0 +1,59 @@
+name: Build PHAR
+
+on: [ push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout GitHub repo
+        uses: actions/checkout@v2
+      
+      # https://stackoverflow.com/a/59819441
+      - name: Set custom variables
+        id: vars
+        run: |
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+          echo "::set-output name=date::$(date --rfc-3339=seconds)"
+      - name: Make '.build' directory
+        run: mkdir .build
+
+      - name: Download DevTools/ConsoleScript.php
+        run: wget -O .build/build.php https://raw.githubusercontent.com/pmmp/DevTools/master/src/ConsoleScript.php
+      
+      - name: Delete unused files
+        run: |
+          shopt -s extglob
+          rm -rfv !("src"|"plugin.yml"|".build"|".git")
+      
+      - name: Display structure of current working directory
+        run: ls -laR
+
+      - name: Build source to PHAR
+        run: |
+          php -dphar.readonly=0 .build/build.php --make ./ --out .build/${{ github.event.repository.name }}_${{ steps.vars.outputs.sha_short }}.phar
+          gzip .build/${{ github.event.repository.name }}_${{ steps.vars.outputs.sha_short }}.phar
+          mv -f .build/${{ github.event.repository.name }}_${{ steps.vars.outputs.sha_short }}.phar.gz .build/${{ github.event.repository.name }}_${{ steps.vars.outputs.sha_short }}.phar
+      - name: Release PHAR artifact to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: build_${{ steps.vars.outputs.sha_short }}
+          name: ${{ github.event.repository.name }} - Build ${{ steps.vars.outputs.sha_short }}
+          body: |
+            Build Date: `${{ steps.vars.outputs.date }}`
+            Build SHA: ${{ steps.vars.outputs.sha_short }}
+            Last Commit Message:
+            ```
+            ${{ github.event.commits[0].message }}
+            ```
+            
+            ## IMPORTANT
+            This is an unstable build of the ${{ github.event.repository.name }} plugin. Only use this build for testing or development purposes.
+            
+            ### Why we use GitHub Releases?
+            We use GitHub Releases instead of GitHub Actions artifacts to retain every build as long as possible.
+          prerelease: true
+          fail_on_unmatched_files: true
+          files: |
+            .build/${{ github.event.repository.name }}_${{ steps.vars.outputs.sha_short }}.phar
